@@ -1,22 +1,28 @@
 package equipo;
 
 import java.io.File;
+import equipo.Equipo;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Equipo {
-	private String id;
-	private String nombre;
-	private String descripcion;
+	private int id;
+	private Equipo nombre;
+	private Equipo descripcion;
+	private static int contadorId;
 	
-	public Equipo(String id, String nombre, String descripcion) throws FileNotFoundException {
-		this.setId(id);
-		this.setNombre(nombre);
-		this.setDescripcion(descripcion);
+	public Equipo() {
+		this.id = ++contadorId;
+	}
+	
+	public Equipo( Equipo nombre, Equipo descripcion) throws FileNotFoundException {
+		this ();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
 		
 		
-		
-		String filePath = "/Proyecto_Integrador_Grupo_O/src/recursos/resultados.csv";
+		int i = 0;
+		String filePath = "src/recursos/resultados.csv";
 		File archivoCSV = new File(filePath);
 		
 		Scanner lector = new Scanner(archivoCSV);
@@ -24,33 +30,29 @@ public class Equipo {
 		while (lector.hasNextLine()) {
 		    String linea = lector.nextLine();
 		    String[] datos = linea.split(",");
-		    // aquí puedes hacer algo con los datos separados
+		    System.out.println(datos[i]);
 		}
 		
 		
 		}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
+	public Equipo getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(Equipo nombre) {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
+	public Equipo getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
+	public void setDescripcion(Equipo descripcion) {
 		this.descripcion = descripcion;
 	}
 		
