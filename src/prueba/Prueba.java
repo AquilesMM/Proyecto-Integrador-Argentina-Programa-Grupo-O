@@ -17,6 +17,7 @@ public class Prueba {
 		while (lector.hasNextLine()) {
 		    String linea = lector.nextLine();
 		    String[] datos = linea.split(",");
+		    //datos = linea.split(";");
 		    System.out.println(datos[i]);
 	                
 		}
